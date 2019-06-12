@@ -1,0 +1,14 @@
+[package]
+name = "serial-benchmark"
+version = "0.1.0"
+authors = ["disasm"]
+edition = "2018"
+
+[dependencies]
+futures = "0.1.27"
+tokio = "0.1.21"
+tokio-io = "0.1.12"
+tokio-serial = "3.2.14"
+rand = "0.6.5"
+chrono = "0.4.6"
+bytes = "0.4.12"
