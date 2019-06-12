@@ -115,32 +115,6 @@ fn main() {
         ()
     }).map_err(|e| panic!(e));
 
-    //let (rx, tx) = port.split();
-    //let (rx, tx) = tokio_serial::Serial::pair().unwrap();
-
-    let mut rx_buffer: Vec<u8> = Vec::new();
-    rx_buffer.resize(DATA_SIZE, 0xcc);
-    //let mut rx_buffer = Box::new(rx_buffer);
-
-//    let writer = write_all(tx, tx_bytes).map(|_| {
-//        println!("writer finished");
-//        ()
-//    }).map_err(|e| panic!(e));
-    //let writer = tx.write_all(tx_bytes);
-
-    //let reader = rx.read_exact(&mut rx_buffer);
-//    let reader = read_exact(rx, rx_buffer).map(move |(_, rx_buffer)| {
-//        println!("reader finished");
-//        for i in 0..DATA_SIZE {
-//            if rx_buffer[i] != rx_bytes[i] {
-//                println!("wrong data at {}: 0x{:02x} != 0x{:02x}", i, rx_buffer[i], rx_bytes[i]);
-//                break
-//            }
-//        }
-//        ()
-//    }).map_err(|e| panic!(e));
-
-    //let worker = writer.join(reader).map(|_| ()).map_err(|_| ());
 
     let mut rt = Runtime::new().unwrap();
 
@@ -154,5 +128,4 @@ fn main() {
     let throughput = (DATA_SIZE * 8) as f64 / 1_000_000.0 / elapsed;
 
     println!("Time elapsed: {:?}, throughput is {:.3} Mbit/s", duration, throughput);
-    //rt.block_on(worker).unwrap();
 }
